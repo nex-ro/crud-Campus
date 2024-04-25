@@ -1,4 +1,5 @@
 <!-- Modal -->
+@csrf
 <div class="modal fade" id="modal-edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -39,19 +40,19 @@
 
 <script>
     // Button to edit post event
-    $('body').on('click', '#btn-edit-post', function () {
+    $('body').on('click', '#btn-edit-post', function() {
         let post_id = $(this).data('id');
         // Fetch post details with AJAX
         $.ajax({
-            url: '{{url('api/posts')}}/' + post_id,
+            url: '{{ url('api/posts') }}/' + post_id,
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             type: "GET",
             cache: false,
-            success: function (response) {
+            success: function(response) {
                 // Fill data into the form
                 $('#post_id').val(response.data.id);
                 $('#title-edit').val(response.data.title);
                 $('#content-edit').val(response.data.content);
-
                 // Display image in the modal
                 $('#gambar').attr("src", "{{ url('storage/posts') }}/" + response.data.image);
 
@@ -62,8 +63,8 @@
     });
 
     // Action to update post
-    $('body').on('submit', '#formData_edit', function (e) {
-        e.preventDefault();x
+    $('body').on('submit', '#formData_edit', function(e) {
+        e.preventDefault();
         e.stopPropagation();
         let post_id = $('#post_id').val();
         var form = new FormData();
@@ -80,7 +81,7 @@
 
         // AJAX request to update post
         $.ajax({
-            url: '{{url('api/posts')}}/' + post_id,
+            url: '{{ url('api/posts') }}/' + post_id,
             type: "POST",
             data: form,
             cache: false,
@@ -89,7 +90,7 @@
             contentType: false,
             timeout: 0,
             mimeType: "multipart/form-data",
-            success: function (response) {
+            success: function(response) {
                 // Show success message
                 Swal.fire({
                     type: 'success',
@@ -118,7 +119,7 @@
                 // Close modal
                 $('#modal-edit').modal('hide');
             },
-            error: function (error) {
+            error: function(error) {
                 console.log(error);
 
                 // Display error messages
@@ -136,4 +137,3 @@
         });
     });
 </script>
-    

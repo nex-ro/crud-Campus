@@ -13,7 +13,8 @@ License: For each use you must have a valid license purchased only from above li
 <html lang="en">
 	<!--begin::Head-->
 	<head><base href="">
-		<title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel by Keenthemes</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
+		<title>Admin - @yield('title')</title>
 		<meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
 		<meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,17 +24,18 @@ License: For each use you must have a valid license purchased only from above li
 		<meta property="og:title" content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
 		<meta property="og:url" content="https://keenthemes.com/metronic" />
 		<meta property="og:site_name" content="Keenthemes | Metronic" />
+        @yield('css')
 		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+		<link rel="shortcut icon" href={{asset('demo1/dist/assets/media/logos/favicon.ico')}} />
 		<!--begin::Fonts-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Page Vendor Stylesheets(used by this page)-->
-		<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{{asset('demo1/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css')}}" rel="stylesheet" type="text/css" />
 		<!--end::Page Vendor Stylesheets-->
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
-		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="{{asset('demo1/dist/assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
+		<link href="{{asset('demo1/dist/assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 	</head>
 	<!--end::Head-->
@@ -49,8 +51,9 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Brand-->
 					<div class="aside-logo flex-column-auto" id="kt_aside_logo">
 						<!--begin::Logo-->
-						<a href="../../demo1/dist/index.html">
-							<img alt="Logo" src="assets/media/logos/logo-1-dark.svg" class="h-25px logo" />
+						<a href="#">
+
+							<img alt="Logo" src={{asset('demo1/dist/assets/media/logos/logo-1-dark.svg')}} class="h-25px logo" />
 						</a>
 						<!--end::Logo-->
 						<!--begin::Aside toggler-->
@@ -79,7 +82,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 								</div>
 								<div class="menu-item">
-									<a class="menu-link active" href="../../demo1/dist/index.html">
+									<a class="menu-link active" href="#">
 										<span class="menu-icon">
 											<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
 											<span class="svg-icon svg-icon-2">
@@ -104,7 +107,7 @@ License: For each use you must have a valid license purchased only from above li
 					<!--end::Aside menu-->
 					<!--begin::Footer-->
 					<div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
-						<a href="../../demo1/dist/documentation/getting-started.html" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="200+ in-house components and 3rd-party plugins">
+						<a href="#" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="200+ in-house components and 3rd-party plugins">
 							<span class="btn-label">Docs &amp; Components</span>
 							<!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
 							<span class="svg-icon btn-icon svg-icon-2">
@@ -141,8 +144,8 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Aside mobile toggle-->
 							<!--begin::Mobile logo-->
 							<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-								<a href="../../demo1/dist/index.html" class="d-lg-none">
-									<img alt="Logo" src="assets/media/logos/logo-2.svg" class="h-30px" />
+								<a href="#">
+									<img alt="Logo" src={{asset('demo1/dist/assets/media/logos/logo-2.svg')}} class="h-30px" />
 								</a>
 							</div>
 							<!--end::Mobile logo-->
@@ -168,7 +171,7 @@ License: For each use you must have a valid license purchased only from above li
 										<div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
 											<!--begin::Menu wrapper-->
 											<div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-												<img src="assets/media/avatars/150-26.jpg" alt="user" />
+												<img src={{asset('demo1/dist/assets/media/avatars/150-26.jpg')}}  alt="user" />
 											</div>
 											<!--begin::Menu-->
 											<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -177,7 +180,7 @@ License: For each use you must have a valid license purchased only from above li
 													<div class="menu-content d-flex align-items-center px-3">
 														<!--begin::Avatar-->
 														<div class="symbol symbol-50px me-5">
-															<img alt="Logo" src="assets/media/avatars/150-26.jpg" />
+															<img alt="Logo" src={{asset('demo1/dist/assets/media/avatars/150-26.jpg')}} />
 														</div>
 														<!--end::Avatar-->
 														<!--begin::Username-->
@@ -195,12 +198,12 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Menu separator-->
 												<!--begin::Menu item-->
 												<div class="menu-item px-5">
-													<a href="../../demo1/dist/account/overview.html" class="menu-link px-5">My Profile</a>
+													<a href="#" class="menu-link px-5">My Profile</a>
 												</div>
 												<!--end::Menu item-->
 												<!--begin::Menu item-->
 												<div class="menu-item px-5">
-													<a href="../../demo1/dist/pages/projects/list.html" class="menu-link px-5">
+													<a href="#" class="menu-link px-5">
 														<span class="menu-text">My Projects</span>
 														<span class="menu-badge">
 															<span class="badge badge-light-danger badge-circle fw-bolder fs-7">3</span>
@@ -218,22 +221,22 @@ License: For each use you must have a valid license purchased only from above li
 													<div class="menu-sub menu-sub-dropdown w-175px py-4">
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="../../demo1/dist/account/referrals.html" class="menu-link px-5">Referrals</a>
+															<a href="#" class="menu-link px-5">Referrals</a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="../../demo1/dist/account/billing.html" class="menu-link px-5">Billing</a>
+															<a href="#" class="menu-link px-5">Billing</a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="../../demo1/dist/account/statements.html" class="menu-link px-5">Payments</a>
+															<a href="#" class="menu-link px-5">Payments</a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="../../demo1/dist/account/statements.html" class="menu-link d-flex flex-stack px-5">Statements
+															<a href="#" class="menu-link d-flex flex-stack px-5">Statements
 															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="View your statements"></i></a>
 														</div>
 														<!--end::Menu item-->
@@ -256,7 +259,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Menu item-->
 												<!--begin::Menu item-->
 												<div class="menu-item px-5">
-													<a href="../../demo1/dist/account/statements.html" class="menu-link px-5">My Statements</a>
+													<a href="#" class="menu-link px-5">My Statements</a>
 												</div>
 												<!--end::Menu item-->
 												<!--begin::Menu separator-->
@@ -267,47 +270,47 @@ License: For each use you must have a valid license purchased only from above li
 													<a href="#" class="menu-link px-5">
 														<span class="menu-title position-relative">Language
 														<span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-														<img class="w-15px h-15px rounded-1 ms-2" src="assets/media/flags/united-states.svg" alt="" /></span></span>
+														<img class="w-15px h-15px rounded-1 ms-2" src={{asset('demo1/dist/assets/media/flags/united-states.svg')}} alt="" /></span></span>
 													</a>
 													<!--begin::Menu sub-->
 													<div class="menu-sub menu-sub-dropdown w-175px py-4">
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5 active">
+															<a href="#" class="menu-link d-flex px-5 active">
 															<span class="symbol symbol-20px me-4">
-																<img class="rounded-1" src="assets/media/flags/united-states.svg" alt="" />
+																<img class="rounded-1" src={{asset('demo1/dist/assets/media/flags/united-states.svg')}} alt="" />
 															</span>English</a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
+															<a href="#" class="menu-link d-flex px-5">
 															<span class="symbol symbol-20px me-4">
-																<img class="rounded-1" src="assets/media/flags/spain.svg" alt="" />
+																<img class="rounded-1" src={{asset('demo1/dist/assets/media/flags/spain.svg')}} alt="" />
 															</span>Spanish</a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
+															<a href="#" class="menu-link d-flex px-5">
 															<span class="symbol symbol-20px me-4">
-																<img class="rounded-1" src="assets/media/flags/germany.svg" alt="" />
+																<img class="rounded-1" src={{asset('demo1/dist/assets/media/flags/germany.svg')}} alt="" />
 															</span>German</a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
+															<a href="#" class="menu-link d-flex px-5">
 															<span class="symbol symbol-20px me-4">
-																<img class="rounded-1" src="assets/media/flags/japan.svg" alt="" />
+																<img class="rounded-1" src={{asset('demo1/dist/assets/media/flags/japan.svg')}} alt="" />
 															</span>Japanese</a>
 														</div>
 														<!--end::Menu item-->
 														<!--begin::Menu item-->
 														<div class="menu-item px-3">
-															<a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
+															<a href="#" class="menu-link d-flex px-5">
 															<span class="symbol symbol-20px me-4">
-																<img class="rounded-1" src="assets/media/flags/france.svg" alt="" />
+																<img class="rounded-1" src={{asset('demo1/dist/assets/media/flags/france.svg')}} alt="" />
 															</span>French</a>
 														</div>
 														<!--end::Menu item-->
@@ -317,12 +320,12 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Menu item-->
 												<!--begin::Menu item-->
 												<div class="menu-item px-5 my-1">
-													<a href="../../demo1/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
+													<a href="#" class="menu-link px-5">Account Settings</a>
 												</div>
 												<!--end::Menu item-->
 												<!--begin::Menu item-->
 												<div class="menu-item px-5">
-													<a href="../../demo1/dist/authentication/flows/basic/sign-in.html" class="menu-link px-5">Sign Out</a>
+													<a href="{{url('logout')}}" class="menu-link px-5">Sign Out</a>
 												</div>
 												<!--end::Menu item-->
 												<!--begin::Menu separator-->
@@ -389,99 +392,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Page title-->
 								<!--begin::Actions-->
 								<div class="d-flex align-items-center py-1">
-									<!--begin::Wrapper-->
-									<div class="me-4">
-										<!--begin::Menu-->
-										<a href="#" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bolder" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-										<!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
-										<span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
-											</svg>
-										</span>
-										<!--end::Svg Icon-->Filter</a>
-										<!--begin::Menu 1-->
-										<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_61484bf44d957">
-											<!--begin::Header-->
-											<div class="px-7 py-5">
-												<div class="fs-5 text-dark fw-bolder">Filter Options</div>
-											</div>
-											<!--end::Header-->
-											<!--begin::Menu separator-->
-											<div class="separator border-gray-200"></div>
-											<!--end::Menu separator-->
-											<!--begin::Form-->
-											<div class="px-7 py-5">
-												<!--begin::Input group-->
-												<div class="mb-10">
-													<!--begin::Label-->
-													<label class="form-label fw-bold">Status:</label>
-													<!--end::Label-->
-													<!--begin::Input-->
-													<div>
-														<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_61484bf44d957" data-allow-clear="true">
-															<option></option>
-															<option value="1">Approved</option>
-															<option value="2">Pending</option>
-															<option value="2">In Process</option>
-															<option value="2">Rejected</option>
-														</select>
-													</div>
-													<!--end::Input-->
-												</div>
-												<!--end::Input group-->
-												<!--begin::Input group-->
-												<div class="mb-10">
-													<!--begin::Label-->
-													<label class="form-label fw-bold">Member Type:</label>
-													<!--end::Label-->
-													<!--begin::Options-->
-													<div class="d-flex">
-														<!--begin::Options-->
-														<label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-															<input class="form-check-input" type="checkbox" value="1" />
-															<span class="form-check-label">Author</span>
-														</label>
-														<!--end::Options-->
-														<!--begin::Options-->
-														<label class="form-check form-check-sm form-check-custom form-check-solid">
-															<input class="form-check-input" type="checkbox" value="2" checked="checked" />
-															<span class="form-check-label">Customer</span>
-														</label>
-														<!--end::Options-->
-													</div>
-													<!--end::Options-->
-												</div>
-												<!--end::Input group-->
-												<!--begin::Input group-->
-												<div class="mb-10">
-													<!--begin::Label-->
-													<label class="form-label fw-bold">Notifications:</label>
-													<!--end::Label-->
-													<!--begin::Switch-->
-													<div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-														<input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-														<label class="form-check-label">Enabled</label>
-													</div>
-													<!--end::Switch-->
-												</div>
-												<!--end::Input group-->
-												<!--begin::Actions-->
-												<div class="d-flex justify-content-end">
-													<button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-													<button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-												</div>
-												<!--end::Actions-->
-											</div>
-											<!--end::Form-->
-										</div>
-										<!--end::Menu 1-->
-										<!--end::Menu-->
-									</div>
-									<!--end::Wrapper-->
-									<!--begin::Button-->
-									<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id="kt_toolbar_primary_button">Create</a>
-									<!--end::Button-->
+                                    @yield('button_header')
 								</div>
 								<!--end::Actions-->
 							</div>
@@ -493,9 +404,9 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Container-->
 							<div id="kt_content_container" class="container-xxl">
 								<!--begin::Row-->
-								<div class="row gy-5 g-xl-8">
-									<p>tulis sini woi</p>
-								</div>
+
+                                    @yield('content')
+
 							</div>
 							<!--end::Container-->
 						</div>
@@ -509,19 +420,19 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Copyright-->
 							<div class="text-dark order-2 order-md-1">
 								<span class="text-muted fw-bold me-1">2021©</span>
-								<a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
+								<a href="#" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
 							</div>
 							<!--end::Copyright-->
 							<!--begin::Menu-->
 							<ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
 								<li class="menu-item">
-									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
+									<a href="#" target="_blank" class="menu-link px-2">About</a>
 								</li>
 								<li class="menu-item">
-									<a href="https://keenthemes.com/support" target="_blank" class="menu-link px-2">Support</a>
+									<a href="#" target="_blank" class="menu-link px-2">Support</a>
 								</li>
 								<li class="menu-item">
-									<a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
+									<a href="#" target="_blank" class="menu-link px-2">Purchase</a>
 								</li>
 							</ul>
 							<!--end::Menu-->
@@ -586,7 +497,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Timeline heading-->
 									<div class="pe-3 mb-5">
 										<!--begin::Title-->
-										<div class="fs-5 fw-bold mb-2">There are 2 new tasks for you in “AirPlus Mobile APp” project:</div>
+										<div class="fs-5 fw-bold mb-2">@yield('judul_header')</div>
 										<!--end::Title-->
 										<!--begin::Description-->
 										<div class="d-flex align-items-center mt-1 fs-6">
@@ -595,7 +506,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-												<img src="assets/media/avatars/150-11.jpg" alt="img" />
+												<img src={{asset('demo1/dist/assets/media/avatars/150-11.jpg')}} alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -618,12 +529,12 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px pe-2">
 												<!--begin::User-->
 												<div class="symbol symbol-circle symbol-25px">
-													<img src="assets/media/avatars/150-3.jpg" alt="img" />
+													<img src={{asset('demo1/dist/assets/media/avatars/150-3.jpg')}} alt="img" />
 												</div>
 												<!--end::User-->
 												<!--begin::User-->
 												<div class="symbol symbol-circle symbol-25px">
-													<img src="assets/media/avatars/150-11.jpg" alt="img" />
+													<img src={{asset('demo1/dist/assets/media/avatars/150-11.jpg')}} alt="img" />
 												</div>
 												<!--end::User-->
 												<!--begin::User-->
@@ -657,7 +568,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px">
 												<!--begin::User-->
 												<div class="symbol symbol-circle symbol-25px">
-													<img src="assets/media/avatars/150-5.jpg" alt="img" />
+													<img src={{asset('demo1/dist/assets/media/avatars/150-5.jpg')}} alt="img" />
 												</div>
 												<!--end::User-->
 												<!--begin::User-->
@@ -716,7 +627,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Alan Nilson">
-												<img src="assets/media/avatars/150-2.jpg" alt="img" />
+												<img src={{asset('demo1/dist/assets/media/avatars/150-2.jpg')}} alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -760,7 +671,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Jan Hummer">
-												<img src="assets/media/avatars/150-6.jpg" alt="img" />
+												<img src={{asset('demo1/dist/assets/media/avatars/150-6.jpg')}} alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -773,7 +684,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Item-->
 											<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
 												<!--begin::Icon-->
-												<img alt="" class="w-30px me-3" src="assets/media/svg/files/pdf.svg" />
+												<img alt="" class="w-30px me-3" src={{asset('demo1/dist/assets/media/svg/files/pdf.svg')}} />
 												<!--end::Icon-->
 												<!--begin::Info-->
 												<div class="ms-1 fw-bold">
@@ -790,7 +701,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Item-->
 											<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
 												<!--begin::Icon-->
-												<img alt="" class="w-30px me-3" src="assets/media/svg/files/doc.svg" />
+												<img alt="" class="w-30px me-3" src={{asset('demo1/dist/assets/media/svg/files/doc.svg')}} />
 												<!--end::Icon-->
 												<!--begin::Info-->
 												<div class="ms-1 fw-bold">
@@ -807,7 +718,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Item-->
 											<div class="d-flex flex-aligns-center">
 												<!--begin::Icon-->
-												<img alt="" class="w-30px me-3" src="assets/media/svg/files/css.svg" />
+												<img alt="" class="w-30px me-3" src={{asset('demo1/dist/assets/media/svg/files/css.svg')}} />
 												<!--end::Icon-->
 												<!--begin::Info-->
 												<div class="ms-1 fw-bold">
@@ -863,7 +774,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-												<img src="assets/media/avatars/150-11.jpg" alt="img" />
+												<img src={{asset('demo1/dist/assets/media/avatars/150-11.jpg')}} alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -907,7 +818,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Marcus Dotson">
-												<img src="assets/media/avatars/150-3.jpg" alt="img" />
+												<img src={{asset('demo1/dist/assets/media/avatars/150-3.jpg')}} alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -921,7 +832,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="overlay me-10">
 												<!--begin::Image-->
 												<div class="overlay-wrapper">
-													<img alt="img" class="rounded w-200px" src="assets/media/demos/demo1.png" />
+													<img alt="img" class="rounded w-200px" src={{asset('demo1/dist/assets/media/demos/demo1.png')}} />
 												</div>
 												<!--end::Image-->
 												<!--begin::Link-->
@@ -935,7 +846,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="overlay me-10">
 												<!--begin::Image-->
 												<div class="overlay-wrapper">
-													<img alt="img" class="rounded w-200px" src="assets/media/demos/demo2.png" />
+													<img alt="img" class="rounded w-200px" src={{asset('demo1/dist/assets/media/demos/demo2.png')}} />
 												</div>
 												<!--end::Image-->
 												<!--begin::Link-->
@@ -949,7 +860,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="overlay">
 												<!--begin::Image-->
 												<div class="overlay-wrapper">
-													<img alt="img" class="rounded w-200px" src="assets/media/demos/demo3.png" />
+													<img alt="img" class="rounded w-200px" src={{asset('demo1/dist/assets/media/demos/demo3.png')}} />
 												</div>
 												<!--end::Image-->
 												<!--begin::Link-->
@@ -1046,7 +957,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Robert Rich">
-												<img src="assets/media/avatars/150-14.jpg" alt="img" />
+												<img src={{asset('demo1/dist/assets/media/avatars/150-14.jpg')}} alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -1140,7 +1051,7 @@ License: For each use you must have a valid license purchased only from above li
 				<!--end::Body-->
 				<!--begin::Footer-->
 				<div class="card-footer py-5 text-center" id="kt_activities_footer">
-					<a href="../../demo1/dist/pages/profile/activity.html" class="btn btn-bg-body text-primary">View All Activities
+					<a href={{asset('/demo1/dist/pages/profile/activity.html')}} class="btn btn-bg-body text-primary">View All Activities
 					<!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
 					<span class="svg-icon svg-icon-3 svg-icon-primary">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -1264,7 +1175,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/150-15.jpg" />
+										<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-15.jpg')}}/>
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -1296,7 +1207,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/150-26.jpg" />
+										<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-26.jpg')}} />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -1316,7 +1227,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/150-15.jpg" />
+										<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-15.jpg')}}/>
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -1348,7 +1259,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/150-26.jpg" />
+										<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-26.jpg')}} />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -1368,7 +1279,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/150-15.jpg" />
+										<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-15.jpg')}} />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -1401,7 +1312,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/150-26.jpg" />
+										<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-26.jpg')}} />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -1421,7 +1332,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/150-15.jpg" />
+										<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-15.jpg')}} />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -1453,7 +1364,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/150-26.jpg" />
+										<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-26.jpg')}} />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -1473,7 +1384,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/150-15.jpg" />
+										<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-15.jpg')}} />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -1564,7 +1475,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Heading-->
 						<!--begin::Google Contacts Invite-->
 						<div class="btn btn-light-primary fw-bolder w-100 mb-8">
-						<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Invite Gmail Contacts</div>
+						<img alt="Logo" src={{asset('demo1/dist/assets/media/svg/brand-logos/google-icon.svg')}} class="h-20px me-3" />Invite Gmail Contacts</div>
 						<!--end::Google Contacts Invite-->
 						<!--begin::Separator-->
 						<div class="separator d-flex flex-center mb-8">
@@ -1587,7 +1498,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/150-1.jpg" />
+											<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-1.jpg')}} />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -1643,7 +1554,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/150-26.jpg" />
+											<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-26.jpg')}} />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -1671,7 +1582,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/150-4.jpg" />
+											<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-4.jpg')}} />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -1699,7 +1610,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/150-15.jpg" />
+											<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-15.jpg')}} />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -1755,7 +1666,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/150-8.jpg" />
+											<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-8.jpg')}} />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -1839,7 +1750,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/150-6.jpg" />
+											<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-6.jpg')}} />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -1895,7 +1806,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/150-7.jpg" />
+											<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-7.jpg')}} />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -1951,7 +1862,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/150-17.jpg" />
+											<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-17.jpg')}} />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -2007,7 +1918,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/150-10.jpg" />
+											<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-10.jpg')}} />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -2035,7 +1946,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/150-17.jpg" />
+											<img alt="Pic" src={{asset('demo1/dist/assets/media/avatars/150-17.jpg')}} />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -2607,9 +2518,9 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Input-->
 													<!--begin::Card logos-->
 													<div class="position-absolute translate-middle-y top-50 end-0 me-5">
-														<img src="assets/media/svg/card-logos/visa.svg" alt="" class="h-25px" />
-														<img src="assets/media/svg/card-logos/mastercard.svg" alt="" class="h-25px" />
-														<img src="assets/media/svg/card-logos/american-express.svg" alt="" class="h-25px" />
+														<img src={{asset('demo1/dist/assets/media/svg/card-logos/visa.svg')}} alt="" class="h-25px" />
+														<img src={{asset('demo1/dist/assets/media/svg/card-logos/mastercard.svg')}} alt="" class="h-25px" />
+														<img src={{asset('demo1/dist/assets/media/svg/card-logos/american-express.svg')}} alt="" class="h-25px" />
 													</div>
 													<!--end::Card logos-->
 												</div>
@@ -2727,7 +2638,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Description-->
 											<!--begin::Illustration-->
 											<div class="text-center px-4 py-15">
-												<img src="assets/media/illustrations/sketchy-1/9.png" alt="" class="w-100 mh-300px" />
+												<img src={{asset('demo1/dist/assets/media/illustrations/sketchy-1/9.png')}} alt="" class="w-100 mh-300px" />
 											</div>
 											<!--end::Illustration-->
 										</div>
@@ -3309,19 +3220,20 @@ License: For each use you must have a valid license purchased only from above li
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Javascript-->
 		<!--begin::Global Javascript Bundle(used by all pages)-->
-		<script src="assets/plugins/global/plugins.bundle.js"></script>
-		<script src="assets/js/scripts.bundle.js"></script>
+		<script src="{{asset('demo1/dist/assets/plugins/global/plugins.bundle.js')}}"></script>
+		<script src="{{asset('demo1/dist/assets/js/scripts.bundle.js')}}"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Page Vendors Javascript(used by this page)-->
-		<script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<script src="{{asset('demo1/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js')}}"></script>
 		<!--end::Page Vendors Javascript-->
 		<!--begin::Page Custom Javascript(used by this page)-->
-		<script src="assets/js/custom/widgets.js"></script>
-		<script src="assets/js/custom/apps/chat/chat.js"></script>
-		<script src="assets/js/custom/modals/create-app.js"></script>
-		<script src="assets/js/custom/modals/upgrade-plan.js"></script>
+		<script src="{{asset('demo1/dist/assets/js/custom/widgets.js')}}"></script>
+		<script src="{{asset('demo1/dist/assets/js/custom/apps/chat/chat.js')}}"></script>
+		<script src="{{asset('demo1/dist/assets/js/custom/modals/create-app.js')}}"></script>
+		<script src="{{asset('demo1/dist/assets/js/custom/modals/upgrade-plan.js')}}"></script>
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->
+        @yield('js')
 	</body>
 	<!--end::Body-->
 </html>
